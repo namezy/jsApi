@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <style>
+      #resizable {
+        resize: both;
+        overflow: auto;
+        width: 200px;
+        height: 100px;
+        border: 1px solid #000;
+        box-sizing: border-box;
+        /* padding: 10px; */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="resizable">调整我的大小</div>
+    <script>
+      const resizable = document.querySelector("#resizable")
+      const observer = new ResizeObserver((entries) => {
+        for (let entry of entries) {
+          console.log(entry)
+
+        }
+      })
+      observer.observe(resizable)
+    </script>
+  </body>
 </html>
